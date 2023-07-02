@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/googlebooks', {
+// Connect to Mongo DB//
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
