@@ -22,7 +22,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    // set savedBooks to be an array of data that adheres to the bookSchema
+    // set savedFoods to be an array of data that adheres to the Food Schema
     savedFoods: [foodSchema],
   },
   // set this to use virtual below
@@ -48,9 +48,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
-// when we query a user, we'll also get another field called `bookCount` with the number of saved books we have
-userSchema.virtual("bookCount").get(function () {
-  return this.savedBooks.length;
+// when we query a user, we'll also get another field called `totalCals` with the total amount of calories saved in the array
+userSchema.virtual("totalCals").get(function () {
+  return this.savedFoods.length;
 });
 
 const User = model("User", userSchema);
