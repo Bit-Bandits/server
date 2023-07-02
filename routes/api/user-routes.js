@@ -3,10 +3,14 @@ const {
     createUser,
     getAllUsers,
     getUserById,
+    getSingleUser,
     updateUser,
     deleteUser,
     addFood,
-    removeFood
+    removeFood,
+    getFoodById,
+    login,
+    
 } = require('../../controllers/user-controller');
 
 const { authMiddleware } = require('../../utils/auth');
