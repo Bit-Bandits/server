@@ -65,7 +65,7 @@ module.exports = {
     }
   },
   // remove a food from `savedFoods`
-  async deleteBook(req, res) {
+  async deleteFood(req, res) {
     const updatedUser = await User.findOneAndUpdate(
       { _id: req.session.user._id },
       { $pull: { savedFoods: { bookId: req.params.bookId } } },
