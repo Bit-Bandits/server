@@ -25,6 +25,7 @@ type Query {
         login(email: String!, password: String!): Auth
         addFood(name: String!, calories: Int!, date: String!): Food
         removeFood(foodId: ID!): User
+        saveFood(foodId: ID!): User
         }
 
         type Auth {
