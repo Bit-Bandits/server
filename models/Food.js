@@ -28,15 +28,22 @@ const foodSchema = new Schema({
         type: Number,
         required: true,
     },
-    servingSizes: [servingSizeSchema],
-    // add date to the saved food
     date: {
         type: Date,
         default: Date.now,
     },
-});
+    servingSizes: [servingSizeSchema],
+},
+    // add date to the saved food
+    {
+        toJSON: {
+          virtuals: true,
+        },
+      }
+    
+);
 
-
+const Food = model ("Food", foodSchema);
 module.exports = {foodSchema, servingSizeSchema};
 
 
