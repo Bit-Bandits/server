@@ -1,4 +1,4 @@
-const User = require('./User');
+const Profile = require('./Profile');
 // const Food = require('./Food');
 
-module.exports = { User };
+module.exports = { Profile };

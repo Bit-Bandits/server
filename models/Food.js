@@ -1,22 +1,29 @@
 const { Schema, model } = require('mongoose');
 
 const foodSchema = new Schema({
-    ID: {
+    foodId: {
         type: Number,
         required: true,
     },
-    name: {
+    label: {
         type: String,
         required: true,
     },
-    Image: {
+    image: {
         type: String,
         required: true,
     },
-    calories: {
+    nutrients: {
         type: Number,
         required: true,
     },
+    servingSizes: [
+        {
+            quantity: { type: Number },
+            unit: { type: String },
+        },
+    ],
+    // add date to the saved food
     date: {
         type: Date,
         default: Date.now,
