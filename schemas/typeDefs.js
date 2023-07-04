@@ -32,6 +32,7 @@ const typeDefs = gql`
     users: [User]
     user(userId: ID!): User
     me: User
+
   }
 
   type Mutation {
@@ -46,6 +47,7 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
+
 `;
 
 module.exports = typeDefs;
