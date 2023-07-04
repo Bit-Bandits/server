@@ -1,28 +1,42 @@
 const { Schema, model } = require('mongoose');
 
+const servingSizeSchema = new Schema({
+    quantity: {
+      type: Number,
+      required: true,
+    },
+    unit: {
+      type: String,
+      required: true,
+    },
+  });
+
 const foodSchema = new Schema({
-    ID: {
+    foodId: {
         type: Number,
         required: true,
     },
-    name: {
+    label: {
         type: String,
         required: true,
     },
-    Image: {
+    image: {
         type: String,
         required: true,
     },
-    calories: {
+    nutrients: {
         type: Number,
         required: true,
     },
+    servingSizes: [servingSizeSchema],
+    // add date to the saved food
     date: {
         type: Date,
         default: Date.now,
     },
 });
 
-// const Food = model('Food', foodSchema);
 
-module.exports = foodSchema;
+module.exports = {foodSchema, servingSizeSchema};
+
+

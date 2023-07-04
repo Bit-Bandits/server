@@ -6,5 +6,24 @@
     "graphql": "^16.7.1",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.3.1"
-  }
+  },
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seeders/seed.js"
+  },
+  "name": "y",
+  "description": "",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bit-Bandits/server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bit-Bandits/server/issues"
+  },
+  "homepage": "https://github.com/Bit-Bandits/server#readme"
 }

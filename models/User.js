@@ -1,36 +1,35 @@
-const { Schema, model } = require("mongoose");
-const bcrypt = require("bcrypt");
+const { Schema, model } = require('mongoose');
+const bcrypt = require('bcrypt');
 
-// import schema from Book.js
-
-const foodSchema = require("./Food");
-
-const userSchema = new Schema(
-  {
-    username: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-      match: [/.+@.+\..+/, "Must use a valid email address"],
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    // set savedFoods to be an array of data that adheres to the Food Schema
-    savedFoods: [foodSchema],
+const foodSchema = require('./Food');
+const servingSizeSchema = require('./Food');
+const userSchema = new Schema({
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
   },
-  // set this to use virtual below
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    match: [/.+@.+\..+/, 'Must match an email address!'],
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 5,
+  },
+  savedFoods: [foodSchema],
+},
+
   {
     toJSON: {
       virtuals: true,
     },
   }
+
 );
 
 // hash user password
@@ -53,6 +52,6 @@ userSchema.virtual("totalCals").get(function () {
   return this.savedFoods.length;
 });
 
-const User = model("User", userSchema);
+const User = model("User",userSchema);
 
 module.exports = User;
