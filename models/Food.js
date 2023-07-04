@@ -37,7 +37,6 @@ const foodSchema = new Schema({
 });
 
 
-// const Food = model('Food', foodSchema);
-
 module.exports = {foodSchema, servingSizeSchema};
-// module.exports = servingSizeSchema;
+
+
