@@ -1,5 +1,16 @@
 const { Schema, model } = require('mongoose');
 
+const servingSizeSchema = new Schema({
+    quantity: {
+      type: Number,
+      required: true,
+    },
+    unit: {
+      type: String,
+      required: true,
+    },
+  });
+
 const foodSchema = new Schema({
     foodId: {
         type: Number,
@@ -17,12 +28,7 @@ const foodSchema = new Schema({
         type: Number,
         required: true,
     },
-    servingSizes: [
-        {
-            quantity: { type: Number },
-            unit: { type: String },
-        },
-    ],
+    servingSizes: [servingSizeSchema],
     // add date to the saved food
     date: {
         type: Date,
@@ -30,6 +36,8 @@ const foodSchema = new Schema({
     },
 });
 
+
 // const Food = model('Food', foodSchema);
 
-module.exports = foodSchema;
+module.exports = {foodSchema, servingSizeSchema};
+// module.exports = servingSizeSchema;

@@ -1,5 +1,5 @@
 // import user model
-const { User } = require("../models");
+const { User} = require("../models");
 // import sign token function from auth
 const { signToken } = require("../utils/auth");
 
@@ -13,7 +13,7 @@ module.exports = {
       ],
     });
 
-    if (!foundUser) {
+    if (!foundUser ) {
       return res
         .status(400)
         .json({ message: "Cannot find a user with this id!" });
@@ -53,7 +53,7 @@ module.exports = {
   // user comes from `req.user` created in the auth middleware function
   async saveFood(req, res) {
     try {
-      const updatedUser = await User.findOneAndUpdate(
+      const updatedUser= await User.findOneAndUpdate(
         { _id: req.params.user._id },
         { $addToSet: { savedFoods: req.body } },
         { new: true, runValidators: true }
@@ -68,7 +68,7 @@ module.exports = {
   async deleteFood(req, res) {
     const updatedUser = await User.findOneAndUpdate(
       { _id: req.session.user._id },
-      { $pull: { savedFoods: { bookId: req.params.bookId } } },
+      { $pull: { savedFoods: { foodId: req.params.foodId } } },
       { new: true }
     );
     if (!updatedUser) {
