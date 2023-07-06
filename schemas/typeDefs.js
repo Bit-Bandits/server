@@ -62,7 +62,7 @@ const typeDefs = gql`
       user: User
     }
     type Query {
-    getUser: User
+    getUser: [User]
     getMeal(mealId: ID!): Meal
     getSavedMeals: [Meal]
     
