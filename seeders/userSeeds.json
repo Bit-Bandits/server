@@ -1,27 +1,9 @@
 [
   {
-  "username": "Brian Kernighan",
-  "email": "bkernighan@techfriends.dev",
-  "password": "password01"
-  
-},
-{
-  "username": "Max Kanat-Alexander",
-  "email": "mkanatalexander@techfriends.dev",
-  "password": "password02"
-
-},
-{
-  "username": "Amiko",
-  "email": "amiko@techfriends.dev",
-  "password": "password03"
-  
-},
-{
-  "name": "Kent Beck",
-  "email": "kbeck@techfriends.dev",
-  "password": "password04"
-
+    "_id": "64a64507ca26cb6460c56825",
+    "username": "john doe",
+    "email": "bkernighan@techfriends.dev",
+    "password": "ahs12365"
 }
 
 ]
