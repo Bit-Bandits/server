@@ -1,21 +1,21 @@
 [
   {
-    
-    "username": "john doe",
-    "email": "bkernighan@techfriends.dev",
-    "password": "ahs12365"
-},
-{
-  
-  "username": "frank sinatra",
-  "email": "bkernighan@techfriends.dev",
-  "password": "ahs12365"
-},
-{
-  
-  "username": "adam Z",
-  "email": "bkernighan@techfriends.dev",
-  "password": "ahs12365"
-}
-
+    "_id": "1",
+    "username": "john_doe",
+    "email": "john@example.com",
+    "password": "password123"
+  },
+  {
+    "_id": "2",
+    "username": "jane_smith",
+    "email": "jane@example.com",
+    "password": "pass123"
+  },
+  {
+    "_id": "3",
+    "username": "alex_123",
+    "email": "alex@example.com",
+    "password": "secure_password"
+  }
 ]
+
