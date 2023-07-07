@@ -1,5 +1,5 @@
 const {User} = require('./User')
 const {Meal} = require('./Meal')
-const {Ingridients } = require('./Ingridients')
+const {Ingredients } = require("./Ingridients")
 
-module.exports = { User, Meal , Ingridients }
+module.exports = { User, Meal , Ingredients }

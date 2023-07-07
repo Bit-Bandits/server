@@ -2,7 +2,7 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    _id: ID
+    
     username: String
     password: String
     
@@ -47,7 +47,7 @@ const typeDefs = gql`
     measure: String
     text: String
   }
-  type IngridientListItem{
+  type IngredientListItem{
     _id: ID
     name: String
     quantity: Int
