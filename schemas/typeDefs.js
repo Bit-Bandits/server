@@ -7,8 +7,9 @@ const typeDefs = gql`
     password: String
     
     email: String
-    savedMeals: [Meal]
-    numSavedMeals: Int
+    _id: ID
+   
+ 
   }
 
   input UserInput {
@@ -62,9 +63,11 @@ const typeDefs = gql`
       user: User
     }
     type Query {
-    getUser: User
+    getUser(id:ID!): User
+    getAllUsers: [User]
     getMeal(mealId: ID!): Meal
     getSavedMeals: [Meal]
+    
     
     }
 
