@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Meal, Ingredients} = require("../models");
+const { User, Meal} = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -21,9 +21,8 @@ const resolvers = {
         _id: context.user._id,
       });
     },
-    getSavedMeals: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Meal.find(params).sort({ createdAt: -1 });
+    getSavedMeals: async (parent, args) => {
+      return User.findOne({ username: args.username }).populate("savedMeals");
     },
   },
   Mutation: {
@@ -51,8 +50,19 @@ const resolvers = {
     saveMeal: async (_, { username, food, calories, servings, date }) => {
       const meal = await Meal.create({ username, food, calories, servings, date });
       const token = signToken(meal);
-      return { token, meal };
+      return { token, meal, username, food, calories, servings, date };
     },
+    // saveMeal: async (parent, args) => {
+    //   const meal = await Meal.create({
+    //     username: args.username,
+    //     food: args.food,
+    //     calories: args.calories,
+    //     servings: args.servings,
+    //     date: args.date,
+    //   });
+    //   const token = signToken(meal);
+    //   return { token, meal };
+    // },
 
     removeMeal: async (parent, { mealId }, context) => {
       if (context.user) {

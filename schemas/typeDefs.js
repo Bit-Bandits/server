@@ -25,7 +25,7 @@ const typeDefs = gql`
     getUser(id: ID!): User
     getAllUsers: [User]
     getMeal(mealId: ID!): Meal
-    getSavedMeals: [Meal]
+    getSavedMeals(username:String!): Meal
     getMealsByUsernameAndDate(username: String!, date: String!): [Meal]
   }
 
