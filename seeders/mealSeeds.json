@@ -1,12 +1,23 @@
 [
-
   {
-    "name": "Spaghetti Bolognese",
-    "portions": 4,
-    "ingredients": [],
-    "picture_url": "https://example.com/spaghetti.jpg'",
-    "instructions": "Cook spaghetti, make sauce, and serve together."
+    "username": "johnsmith",
+    "food": "Pizza",
+    "calories": 800,
+    "servings": 2,
+    "date": "2023-07-05"
+  },
+  {
+    "username": "janedoe",
+    "food": "Salad",
+    "calories": 300,
+    "servings": 1,
+    "date": "2023-07-05"
+  },
+  {
+    "username": "johnsmith",
+    "food": "Burger",
+    "calories": 600,
+    "servings": 1,
+    "date": "2023-07-06"
   }
-
 ]
-

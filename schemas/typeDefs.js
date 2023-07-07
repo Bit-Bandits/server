@@ -2,84 +2,40 @@ const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
   type User {
-    
     username: String
     password: String
-    
     email: String
     _id: ID
-   
- 
   }
 
-  input UserInput {
-    username: String
-    
-    email: String
-    password: String
-  }
   type Meal {
-    _id: ID
-    name: String
-    portions: Int
-    ingredients: [Ingredient]
-    picture_url: String
-    edamamId: String
-    instructions: String
+    username: String
+    food: String
+    calories: Int
+    servings: Int
+    date: Int
   }
-  input MealInput {
-    name: String
-    portions: Int
-    ingredients: [IngredientInput]
-    picture_url: String
-    edamamId: String
-    instructions: String
-  }
-  type Ingredient {
-    _id: ID
-    name: String
-    quantity: Int
-    measure: String
-    text: String
-  }
-  input IngredientInput {
-    name: String
-    quantity: Int
-    measure: String
-    text: String
-  }
-  type IngredientListItem{
-    _id: ID
-    name: String
-    quantity: Int
-    measure: String
-    text: String
-    meal: String
-    mealId: ID
-    }
 
-    type Auth {
-      token: ID!
-      user: User
-    }
-    type Query {
-    getUser(id:ID!): User
+  type Auth {
+    token: ID!
+    user: User
+  }
+
+  type Query {
+    getUser(id: ID!): User
     getAllUsers: [User]
     getMeal(mealId: ID!): Meal
     getSavedMeals: [Meal]
-    
-    
-    }
+    getMealsByUsernameAndDate(username: String!, date: String!): [Meal]
+  }
 
-type Mutation {
+  type Mutation {
     addUser(user: UserInput!): Auth
     saveMeal(input: MealInput!): Meal
     updateMeal(mealId: ID!, input: MealInput!): Meal
     removeMeal(mealId: ID!): Boolean
     login(email: String!, password: String!): Auth
-  
-}
-
+  }
 `;
 
 module.exports = typeDefs;
