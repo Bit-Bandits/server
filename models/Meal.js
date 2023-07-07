@@ -3,31 +3,30 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const mealSchema = new Schema({
-  name: {
+  username: {
     type: String,
     required: true,
     trim: true
   },
-  portions: {
+  food: {
+    type: String,
+    required: true,
+  },
+  calories: {
     type: Number,
     required: true,
     min: 0,
-    default: 2
   },
-  ingredients: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Ingredient',
-      // required: true
-    }
-  ],
-  picture_url: {
-    type: String,
-    required: false
+  servings: {
+    type: Number,
+    required: true,
+    min: 0,
+    default: 1
   },
-  instructions: {
-    type: String
-  }
+  date : {
+    type: Date,
+    default: Date.now
+  },
 });
 
 const Meal = mongoose.model('Meal', mealSchema);
