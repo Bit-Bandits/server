@@ -20,13 +20,17 @@ const userSchema = new Schema({
     required: true,
    
   },
-  savedMeals: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Meal',
-      required: true
-    }
-  ],
+  date : {
+    type: Date,
+    default: Date.now
+  },
+  // savedMeals: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: 'Meal',
+  //     required: true
+  //   }
+  // ],
 });
 
 userSchema.pre('save', async function (next) {

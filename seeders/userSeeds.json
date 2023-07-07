@@ -1,18 +1,18 @@
 [
   {
-    "_id": "1",
+    
     "username": "john_doe",
     "email": "john@example.com",
     "password": "password123"
   },
   {
-    "_id": "2",
+    
     "username": "jane_smith",
     "email": "jane@example.com",
     "password": "pass123"
   },
   {
-    "_id": "3",
+    
     "username": "alex_123",
     "email": "alex@example.com",
     "password": "secure_password"
