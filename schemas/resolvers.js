@@ -21,9 +21,11 @@ const resolvers = {
         _id: context.user._id,
       });
     },
-    getSavedMeals: async (parent, args) => {
-      return User.findOne({ username: args.username }).populate("savedMeals");
+    getSavedMeals: async (_, { username}) => {
+      const meals = await Meal.find({username});
+      return meals;
     },
+ 
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -50,7 +52,8 @@ const resolvers = {
     saveMeal: async (_, { username, food, calories, servings, date }) => {
       const meal = await Meal.create({ username, food, calories, servings, date });
       const token = signToken(meal);
-      return { token, meal, username, food, calories, servings, date };
+      // return { token, meal, username, food, calories, servings, date };
+      return meal;
     },
     // saveMeal: async (parent, args) => {
     //   const meal = await Meal.create({

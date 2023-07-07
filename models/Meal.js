@@ -27,6 +27,11 @@ const mealSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  id : {
+    type: String,
+    
+    
+  }
 });
 
 const Meal = mongoose.model('Meal', mealSchema);
