@@ -28,15 +28,24 @@ const resolvers = {
  
   },
   Mutation: {
-    addUser: async (parent, args) => {
+    addUser: async (parent, { username, email, password }) => {
       const user = await User.create({
-        username: args.user.username,
-        email: args.user.email,
-        password: args.user.password,
+        username,
+        email,
+        password,
       });
       const token = signToken(user);
       return { token, user };
     },
+    // addUser: async (parent, args) => {
+    //   const user = await User.create({
+    //     username: args.user.username,
+    //     email: args.user.email,
+    //     password: args.user.password,
+    //   });
+    //   const token = signToken(user);
+    //   return { token, user };
+    // },
     // saveMeal: async (parent, args, context) => {
     //   if (!context.user) {
     //     throw new AuthenticationError("You need to be logged in!");
@@ -67,16 +76,20 @@ const resolvers = {
     //   return { token, meal };
     // },
 
-    removeMeal: async (parent, { mealId }, context) => {
+    removeMeal: async (parent, { _id }, context) => {
       if (context.user) {
-        return User.findOneAndUpdate(
+        const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { savedMeals: { mealId } } },
+          { $pull: { savedMeals: { _id } } },
           { new: true }
         );
+        return !!updatedUser; // Return a boolean indicating the success of the operation
+      } else {
+        throw new AuthenticationError("You need to be logged in!");
       }
-      throw new AuthenticationError("You need to be logged in!");
     },
+    
+    
     // updateMeal: async (parent, { mealId, mealData }, context) => {
     //   if (context.user) {
     //     return User.findOneAndUpdate(
