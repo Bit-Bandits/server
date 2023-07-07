@@ -47,7 +47,7 @@ const typeDefs = gql`
     measure: String
     text: String
   }
-  type IngridientListItem{
+  type IngredientListItem{
     _id: ID
     name: String
     quantity: Int
@@ -62,7 +62,7 @@ const typeDefs = gql`
       user: User
     }
     type Query {
-    getUser: [User]
+    getUser: User
     getMeal(mealId: ID!): Meal
     getSavedMeals: [Meal]
     

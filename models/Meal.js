@@ -18,7 +18,7 @@ const mealSchema = new Schema({
     {
       type: Schema.Types.ObjectId,
       ref: 'Ingredient',
-      required: true
+      // required: true
     }
   ],
   picture_url: {
