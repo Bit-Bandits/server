@@ -15,12 +15,12 @@ const resolvers = {
       return await Meal.find({ username, date });
     },
    
-    getMeal: async (parent, { _id , context }) => {
-      // const params = _id ? { _id } : {};
-      return Meal.findOne({
-        _id: context.user._id,
-      });
-    },
+    // getMeal: async (parent, { _id , context }) => {
+    //   // const params = _id ? { _id } : {};
+    //   return Meal.findOne({
+    //     _id: context.user._id,
+    //   });
+    // },
     getSavedMeals: async (_, { username}) => {
       const meals = await Meal.find({username});
       return meals;
@@ -28,15 +28,24 @@ const resolvers = {
  
   },
   Mutation: {
-    addUser: async (parent, args) => {
+    addUser: async (parent, { username, email, password }) => {
       const user = await User.create({
-        username: args.user.username,
-        email: args.user.email,
-        password: args.user.password,
+        username,
+        email,
+        password,
       });
       const token = signToken(user);
       return { token, user };
     },
+    // addUser: async (parent, args) => {
+    //   const user = await User.create({
+    //     username: args.user.username,
+    //     email: args.user.email,
+    //     password: args.user.password,
+    //   });
+    //   const token = signToken(user);
+    //   return { token, user };
+    // },
     // saveMeal: async (parent, args, context) => {
     //   if (!context.user) {
     //     throw new AuthenticationError("You need to be logged in!");
@@ -67,16 +76,15 @@ const resolvers = {
     //   return { token, meal };
     // },
 
-    removeMeal: async (parent, { mealId }, context) => {
+    removeMeal: async (parent, { _id }, context) => {
       if (context.user) {
-        return User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedMeals: { mealId } } },
-          { new: true }
-        );
+        const meal = await Meal.findOneAndRemove({ _id, username: context.user.username });
+        return !!meal; // Return a boolean indicating the success of the operation
+      } else {
+        throw new AuthenticationError("You need to be logged in!");
       }
-      throw new AuthenticationError("You need to be logged in!");
     },
+    
     // updateMeal: async (parent, { mealId, mealData }, context) => {
     //   if (context.user) {
     //     return User.findOneAndUpdate(
