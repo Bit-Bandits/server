@@ -15,12 +15,12 @@ const resolvers = {
       return await Meal.find({ username, date });
     },
    
-    getMeal: async (parent, { _id , context }) => {
-      // const params = _id ? { _id } : {};
-      return Meal.findOne({
-        _id: context.user._id,
-      });
-    },
+    // getMeal: async (parent, { _id , context }) => {
+    //   // const params = _id ? { _id } : {};
+    //   return Meal.findOne({
+    //     _id: context.user._id,
+    //   });
+    // },
     getSavedMeals: async (_, { username}) => {
       const meals = await Meal.find({username});
       return meals;
@@ -78,17 +78,12 @@ const resolvers = {
 
     removeMeal: async (parent, { _id }, context) => {
       if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { savedMeals: { _id } } },
-          { new: true }
-        );
-        return !!updatedUser; // Return a boolean indicating the success of the operation
+        const meal = await Meal.findOneAndRemove({ _id, username: context.user.username });
+        return !!meal; // Return a boolean indicating the success of the operation
       } else {
         throw new AuthenticationError("You need to be logged in!");
       }
     },
-    
     
     // updateMeal: async (parent, { mealId, mealData }, context) => {
     //   if (context.user) {
