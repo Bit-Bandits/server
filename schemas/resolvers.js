@@ -11,18 +11,18 @@ const resolvers = {
     getUser: async (parent, args) => {
       return await User.findById(args.id);
     },
+
     getMealsByUsernameAndDate: async (_, { username, date }) => {
       return await Meal.find({ username, date });
     },
    
-    // getMeal: async (parent, { _id , context }) => {
-    //   // const params = _id ? { _id } : {};
-    //   return Meal.findOne({
-    //     _id: context.user._id,
-    //   });
-    // },
-    getSavedMeals: async (_, { username}) => {
-      const meals = await Meal.find({username});
+    getMeal: async (parent, args) => {
+      return await Meal.findById(args.id);
+    },
+    
+
+    getSavedMeals: async (_, { username }) => {
+      const meals = await Meal.find({ username });
       return meals;
     },
  
