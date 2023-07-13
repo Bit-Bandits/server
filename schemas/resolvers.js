@@ -44,44 +44,14 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // addUser: async (parent, args) => {
-    //   const user = await User.create({
-    //     username: args.user.username,
-    //     email: args.user.email,
-    //     password: args.user.password,
-    //   });
-    //   const token = signToken(user);
-    //   return { token, user };
-    // },
-    // saveMeal: async (parent, args, context) => {
-    //   if (!context.user) {
-    //     throw new AuthenticationError("You need to be logged in!");
-    //   }
-    //   console.log(args.input.ingredients)
-
-    //   const meal = await Meal.create({
-    //     name: args.input.name,
-    //     portions: args.input.portions,
-    //     ingredients: args.input.ingredients,
-    //   });
+   
       
     saveMeal: async (_, { username, food, calories, servings, date }) => {
       const meal = await Meal.create({ username, food, calories, servings, date });
       const token = signToken(meal);
-      // return { token, meal, username, food, calories, servings, date };
       return meal;
     },
-    // saveMeal: async (parent, args) => {
-    //   const meal = await Meal.create({
-    //     username: args.username,
-    //     food: args.food,
-    //     calories: args.calories,
-    //     servings: args.servings,
-    //     date: args.date,
-    //   });
-    //   const token = signToken(meal);
-    //   return { token, meal };
-    // },
+   
 
     removeMeal: async (parent, { _id }, context) => {
       if (context.user) {
@@ -92,16 +62,7 @@ const resolvers = {
       }
     },
     
-    // updateMeal: async (parent, { mealId, mealData }, context) => {
-    //   if (context.user) {
-    //     return User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { savedMeals: { mealId } } },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw new AuthenticationError("You need to be logged in!");
-    // },
+    
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
   
