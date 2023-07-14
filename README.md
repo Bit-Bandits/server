@@ -14,37 +14,39 @@ We also wanted to build a scalable project, where we knew we could succeed, acco
 
 ## used Technologies
 
- ant design , Tailwind , Dayjs , React , Apollo , bycrypt , Express , Graphql, Mongoose, Nodemon , JWB, Heroku , Github , Vs-code
+- ant design , Tailwind , Dayjs , React , Apollo , bycrypt , Express , Graphql, Mongoose, -Nodemon , JWB, Heroku , Github , Vs-code
 
-![Getting Started](./assets/calpal1.png)
-![Getting Started](./assets/calpal2.png)
-![Getting Started](./assets/calpal3.png)
-![Getting Started](./assets/calpal4.png)
-![Getting Started](./assets/calpal5.png)
-![Getting Started](./assets/calpal6.png)
-![Getting Started](./assets/calpal7.png)
-![Getting Started](./assets/calpal8.png)
-![Getting Started](./assets/calpal9.png)
-![Getting Started](./assets/logo.png)
+![Getting Started](./src/assets/calpal1.png)
+![Getting Started](./src/assets/calpal2.png)
+![Getting Started](./src/assets/calpal3.png)
+![Getting Started](./src/assets/calpal4.png)
+![Getting Started](./src/assets/calpal5.png)
+![Getting Started](./src/assets/calpal6.png)
+![Getting Started](./src/assets/calpal7.png)
+![Getting Started](./src/assets/calpal8.png)
+![Getting Started](./src/assets/calpal9.png)
+![Getting Started](./src/assets/logo.png)
 
 ## github link
 https://github.com/Bit-Bandits/client
+
 https://github.com/Bit-Bandits/server
 
 ## Heroku deployed app
 
 https://calpal-d266c388df3c.herokuapp.com/
+
 https://cal-pal-server-273e253c14e5.herokuapp.com/graphql 
 
 
 
  ## Credits
 
-Mohamed Elhelw
-Anthony Groce
-José Segura
-Goldie Rizova
-Matt Wagner
+-Mohamed Elhelw
+-Anthony Groce
+-José Segura
+-Goldie Rizova
+-Matt Wagner
 
 ## License
 
